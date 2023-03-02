@@ -1,6 +1,6 @@
 # Ben-s-Portfolio
 
-This is a repository for a few of my (Ben's) programming projects. All of the currently uploaded projects are MATLAB (.m) files. 
+This is a repository for a few of my (Ben's) programming projects. Most of the currently uploaded projects are MATLAB (.m) files. 
 An overview of each is given below.
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -42,6 +42,13 @@ SpringGravity:         This script was designed to solve numerically a system of
                        answered is, what do such "spring-gravity" orbits look like? By tuning the various parameters, one can get some
                        very interesting behavior here. The equations of motion were obtained by the Lagrangian method, and then the 
                        algorithm solves these equations through a simple (Euler) numerical scheme.
+                       
+Geometry-proof-code and
+Proof__Dr_Gerlach-2:   A professor challenged our class to come up with a proof of a given statement involving the normal vectors to 
+                       polygons/polyhedra as he could not figure out why it was true, and this is the proof I produced, written
+                       up in TeX and edited in Overleaf, as a demonstration of basic LaTeX abilities. The "Proof__Dr_Gerlach-2" file 
+                       is the .pdf version, and Geometry-proof-code is my code.
+                      
   -----------------------------------------------------------------------------------------------------------------------------              
                 
 Thanks for stopping by! Email me if you have any questions at: ben.thayer15@gmail.com or thayer.80@osu.edu.
