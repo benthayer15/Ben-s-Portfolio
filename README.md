@@ -24,8 +24,26 @@ Curves_of_Pursuit:     This script has as its purpose the computation, plotting 
                        Furthermore, it provides a way to determine if the pursuer caught the fleeing party within some fixed
                        time limit. There is ample room for exploration of different conditions/circumstances in this code, with
                        additional generalization pointed to in the comments.
+                    
+PolyInterp:            This script was created to demonstrate polynomial interpolation of a simple set of data points. It accomplishes
+                       this by randomizing a set of data points and then solving a system of linear equations (a regression problem) 
+                       and then graphing the result. One must be careful here, for although the mathematical technique is quite 
+                       general, if two of the randomly chosen points are too close together relative to the size of the interval, the 
+                       regression algorithm will diverge.
+                       
+Surface_Geodesics:     This code was created as an instructional supplement to a video on the topic of using the calculus of 
+                       variations to find paths of extremal length (geodesics) on 2D surfaces in space. It utilizes a Taylor-series 
+                       expansion to solve numerically a system of differential equations were explicitly obtained by hand as Euler-
+                       Lagrange equations for the arc length integral. It then graphs the solution simultaneously with a spherical 
+                       mesh to demonstrate visually that the geodesics of a 2-sphere are the arcs of great circles on the sphere.
+                       
+SpringGravity:         This script was designed to solve numerically a system of ODEs for a hypothetical mechanical system--a planet 
+                       which has a spring (Hooke's law) force for gravity, instead of the usual Newtonian gravity. The question being
+                       answered is, what do such "spring-gravity" orbits look like? By tuning the various parameters, one can get some
+                       very interesting behavior here. The equations of motion were obtained by the Lagrangian method, and then the 
+                       algorithm solves these equations through a simple (Euler) numerical scheme.
   -----------------------------------------------------------------------------------------------------------------------------              
                 
-Thanks for stopping by! Email me if you have any questions at: ben.thayer15@gmail.com.
+Thanks for stopping by! Email me if you have any questions at: ben.thayer15@gmail.com or thayer.80@osu.edu.
 
 -Ben
