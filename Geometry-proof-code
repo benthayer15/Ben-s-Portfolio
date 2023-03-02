@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{amssymb}
+
+\title{Proof for Prof. Gerlach}
+\author{Benjamin Thayer (thayer.80@osu.edu) }
+\date{30 January 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{The Problem}
+
+Suppose we are given a polygon in the plane or a polyhedron in space. If we label the unit normal to the $k$ different edges (faces) of this polygon (polyhedron) $\hat{n}_1, \hat{n}_2, ..., \hat{n}_k$ and define $\vec{n}_i = \alpha_i \hat{n}_i$, where $\alpha_i$ is the length (area) of the corresponding edge (face), then show that $\sum_{i=1}^{k} \vec{n}_i = 0.$
+
+\section{The Solution in Two Dimensions}
+
+Call the area enclosed by the polygon $R$, and the polygon itself (oriented counterclockwise) $\partial R.$ We will relabel the $\alpha_i$ as $l_i$ to indicate that these are edge lengths in the 2-D case. Suppose we define a constant (non-zero) vector field $\vec{F}$. Now one formulation of Green's Theorem in the plane--utilizing the 2-D divergence rather than the so-called scalar curl--is stated as:
+$$ \iint_R \\div(\vec{F}) \,dA = \oint_{\partial R} \vec{F} \cdot d\hat{n}., $$
+where $\hat{n}$ is the outward-pointing normal. Now since $\vec{F}$ is constant, its divergence is zero; thus, the left-hand side of the above theorem is zero, and we will reason from the right-hand side to obtain the desired identity.
+Calling the $i$th oriented edge of our polygon $\partial R_i$, we see that $\partial R$ decomposes into the union $\partial R = \bigcup_{i=1}^k \partial R_i$ and hence
+$$ \oint_{\partial R} \vec{F} \cdot d\hat{n} = \sum_{i=1}^k \int_{\partial R_i} \vec{F} \cdot d\hat{n} = \sum_{i=1}^k \int_{\partial R_i} \vec{F} \cdot \hat{n}_i \,ds.$$
+Since both $\vec{F}$ and the unit outward normal $\hat{n}_i$ are constant along each edge $\partial R_i$, we can bring this portion out of the integral to obtain
+$$ \oint_{\partial R_i} \vec{F} \cdot d\hat{n} = \vec{F} \cdot \hat{n}_i \int_{\partial R_i} ds,$$
+where $\int_{\partial R_i} ds = l_i$, the length of the edge $\partial R_i$, and $\vec{F} \cdot \hat{n}_i = \lVert\vec{F}\rVert \cos{\theta_i}$, where $\theta_i$ is the angle that the vector $\vec{F}$ makes with the vector $\hat{n}_i$ in the plane. Thus, our original integral becomes
+$$ \oint_{\partial R} \vec{F} \cdot d\hat{n} = \sum_{i=1}^k \lVert\vec{F}\rVert l_i \cos{\theta_i} = \lVert\vec{F}\rVert \sum_{i=1}^k l_i \cos{\theta_i},$$
+where we have taken $\lVert\vec{F}\rVert$ out of the sum because $\vec{F}$ was assumed to be constant everywhere. 
+Now we know from before that this expression must equal zero, and we assumed $\vec{F}$ nonzero, so we conclude that the sum must be zero:
+$$\sum_{i=1}^k l_i \cos{\theta_i} = 0,$$
+regardless of our choice of $\vec{F}.$ Let us choose, then, two different possibilities for the vector field $\vec{F}$ and see what happens. First, take $\vec{F} = \hat{i}$, the unit vector the x-direction. Then the angle $\theta_i$ is precisely the angle that $\hat{n}_i$ makes with the x-axis, so that $l_i \cos{\theta_i}$ is the component of the length-scaled vector $\vec{n}_i$ in the x-direction. Thus our sum becomes $$ \sum_{i=1}^k (\vec{n}_i)_{x} = 0. $$
+Similarly, if we take $\vec{F} = \hat{j}$, the unit vector in the y-direction, we obtain
+$$ \sum_{i=1}^k l_i \cos{\phi_i} = 0,$$
+where $\phi_i$ is the angle that the vector $\hat{n}_i$ makes with the y-axis, or if we express it in terms of $\theta_i$ from before, we have $\cos{\phi_i} = \cos{(\theta_i - \frac{\pi}{2})} = \cos{(-(\frac{\pi}{2}-\theta_i))} = \cos{(\frac{\pi}{2}-\theta_i)} = \sin{\theta_i}$, yielding the analogous identity
+$$ \sum_{i=1}^k l_i \sin{\theta_i} = \sum_{i=1}^k (\vec{n}_i)_{y} = 0.$$
+Now the vector $\vec{n}_i$ is simply the sum of its components: $\vec{n}_i = (\vec{n}_i)_{x}\hat{i} + (\vec{n}_i)_{y}\hat{j}$, so we finally obtain the identity
+$$ \sum_{i=1}^k \vec{n}_i =  \sum_{i=1}^k (\vec{n}_i)_{x}\hat{i} +  \sum_{i=1}^k (\vec{n}_i)_{y}\hat{j} = 0\hat{i} + 0\hat{j} = 0$$
+as was to be shown. $_\blacksquare$
+
+\section{The Solution in $m$ Dimensions}
+
+Suppose we now have a polytope in $\mathbb{R}^m$ whose interior region we label $D$ and whose boundary we label $\partial D$, consisting of $(m-1)$-facets, or just facets, as we shall refer to them. Suppose also that for the $i$th facet, we call $\vec{n}_i = h_i \hat{n}_i$ the outward-facing normal vector to this facet and $h_i$ is the (hyper)volume of the facet. Then, defining the divergence of a vector field $\vec{F}$ to be 
+$$ div(\vec{F}) = \sum_{i=1}^m \frac{\partial F_i}{\partial x_i},$$
+we have the analog of the divergence theorem in $\mathbb{R}^m$ to be
+$$ \int_D div(\vec{F}) \,dH = \oint_{\partial D} \vec{F} \cdot d\hat{N},$$
+where it is understood that $dH$ is an infinitesimal $m$-volume element and $d\hat{N}$ is the infinitesimal outward pointing normal to $\partial D$. As before, if we define $\vec{F}$ to be constant everywhere, then the expression on the left-hand side is equal to zero. Labelling the $k$ different facets of our polytope $\partial D_i$, we have:
+$$ \oint_{\partial D} \vec{F} \cdot d\hat{N} = \sum_{i=1}^k \int_{\partial D_i} \vec{F} \cdot d\hat{N} $$
+$$ = \sum_{i=1}^k \int_{\partial D_i} (\vec{F} \cdot \hat{n}_i) \,dH,$$
+where $dH$ is now an infinitesimal $(m-1)$-volume element, and since $\vec{F}$ and $\hat{n}_i$ are constant along a facet, this is
+$$ \sum_{i=1}^k (\vec{F} \cdot \hat{n}_i) \int_{\partial D_i} dH$$
+$$ = \sum_{i=1}^k \lVert \vec{F} \rVert h_i \cos{\theta_i},$$
+because $\vec{F} \cdot \hat{n}_i = \lVert \vec{F} \rVert \cos{\theta_i}$, where $\theta_i$ is the angle between the vectors $\vec{F}$ and $\hat{n}_i$, and $\int_{\partial D_i} dH$ is simply $h_i$ as we defined it, the volume of the $i$th facet. Since $\vec{F}$ is constant everywhere, we can bring it out of the sum and divide by the magnitude ($\vec{F}$ assumed nonzero) to obtain that
+$$ \sum_{i=1}^k h_i \cos{\theta_i} = 0.$$
+If we now define, one at time, $\vec{F}_j = \hat{e}_j$, the $j$th standard basis vector for $\mathbb{R}^m$, and if we call $\theta_{ij}$ the angle that $\hat{n}_i$ makes with $\hat{e}_j$, then the $j$th component of the vector $\vec{n}_i$ is $proj_{\hat{e}_j}(\vec{n}_i) = h_i \cos{\theta_{ij}}$, and applying the above summation identity, we obtain the following:
+$$ \sum_{i=1}^k \vec{n}_i = \sum_{i=1}^k \sum_{j=1}^m h_i \cos{\theta_{ij}} \hat{e}_j$$
+$$ = \sum_{j=1}^m \left(\sum_{i=1}^k h_i \cos{\theta_{ij}}\right) \hat{e}_j $$ 
+$$ = \sum_{j=1}^m 0\hat{e}_j = 0,$$
+which was to be shown. $_\blacksquare$
+
+\end{document}
